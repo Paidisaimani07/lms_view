@@ -67,14 +67,14 @@ html, body {
 
   border: 1px solid rgba(0,0,0,0.1);
 
-  /* 🔥 3D setup */
   transform-style: preserve-3d;
+  perspective: 1000px;
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
 /* ===== IMAGE ===== */
@@ -83,23 +83,20 @@ html, body {
   height: 180px;
   object-fit: cover;
 
-  transform: translateZ(20px);
+  transform: translateZ(40px);
 }
 
 /* ===== CONTENT ===== */
 .card-content {
   padding: 15px;
-  transform: translateZ(30px);
+  transform: translateZ(60px);
 }
 
 /* ===== TITLE ===== */
 .card-title {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 10px;
 }
-
-
 
 /* ===== EMPTY ===== */
 .empty {
@@ -107,3 +104,166 @@ html, body {
   margin-top: 40px;
   color: gray;
 }
+
+/* ===== PROGRESS SECTION ===== */
+.progress-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.progress-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.progress-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.completed-icon {
+  margin-left: 8px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.mark-complete-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mark-complete-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.mark-complete-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.progress-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.reset-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.continue-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.continue-btn:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.continue-btn:active {
+  transform: translateY(0);
+}
+
+.result-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.result-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-1px);
+}
+
+.reset-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.reset-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: translateY(-1px);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes shine {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
